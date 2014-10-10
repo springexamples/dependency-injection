@@ -21,8 +21,6 @@ public class Main {
 		Performer performer = context.getBean("duck", Performer.class);
 		try {
 			performer.perform();
-
-
 		} catch (PerformanceException e) {
 			e.printStackTrace();
 		}
@@ -45,15 +43,23 @@ public class Main {
 
 		context.getBean("auditorium", Auditorium.class);
 
-		System.out.println("=-------------------");
+		System.out.println("kenny=-------------------");
 		Performer kenny = context.getBean("kenny", Performer.class);
 		try {
 			kenny.perform();
 		} catch (PerformanceException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("carl =-------------------");
+		Performer carl = context.getBean("carl", Performer.class);
+		try {
+			carl.perform();
+		} catch (PerformanceException e) {
+			e.printStackTrace();
+		}
 
-		System.out.println("=-------------------");
+		System.out.println("hank=-------------------");
 		Performer hank = context.getBean("hank", Performer.class);
 		try {
 			hank.perform();
@@ -61,7 +67,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		System.out.println("=-------------------");
+		System.out.println("boody=-------------------");
 		Performer boody = context.getBean("boody", Performer.class);
 		try {
 			boody.perform();

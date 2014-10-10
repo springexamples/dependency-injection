@@ -31,7 +31,10 @@
 		class="com.springinaction.spingidol.performers.instrument.PianoInstrument" />
 
 	<bean id="kenny" class="com.springinaction.spingidol.performers.Instrumentalist"
-		p:song="Hamedo" p:instrument-ref="pianoInstrument" />
+		p:song="'El Shar3 El 7or'" p:instrument="#{pianoInstrument}" />
+		
+		<bean id="carl" class="com.springinaction.spingidol.performers.Instrumentalist"
+			p:song="#{kenny.song?.toUpperCase()}" />
 
 	<!-- Wiring Collections -->
 
