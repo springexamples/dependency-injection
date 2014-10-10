@@ -1,5 +1,7 @@
 package com.springinaction.spelcollections;
 
+import java.util.List;
+
 public class User{
 	private City profileCity;
 	private List<String> bigCityNames;
