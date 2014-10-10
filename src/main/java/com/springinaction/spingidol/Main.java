@@ -7,6 +7,7 @@ import com.springinaction.spingidol.util.Auditorium;
 import com.springinaction.spingidol.util.PerformanceException;
 import com.springinaction.spingidol.util.Stage;
 import com.springinaction.spingidol.util.Ticket;
+import com.springinaction.spelcollections.User;
 
 public class Main {
 
@@ -74,6 +75,10 @@ public class Main {
 		} catch (PerformanceException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("----------------------------------------------------------");
+		User user = context.getBean("user", User.class);
+		System.out.println(user.getProfileCity());
 
 		context.close();
 	}

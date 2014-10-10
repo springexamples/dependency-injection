@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 	<!-- Constructor Injection -->
 	<bean id="sonnet29" class="com.springinaction.spingidol.performers.poem.Sonnet29" />
@@ -31,10 +34,12 @@
 		class="com.springinaction.spingidol.performers.instrument.PianoInstrument" />
 
 	<bean id="kenny" class="com.springinaction.spingidol.performers.Instrumentalist"
-		p:song="'El Shar3 El 7or'" p:instrument="#{pianoInstrument}" />
+		p:song="'Disert Rose'" p:instrument="#{pianoInstrument}" />
 		
-		<bean id="carl" class="com.springinaction.spingidol.performers.Instrumentalist"
-			p:song="#{kenny.song?.toUpperCase()}" />
+	<bean id="carl" class="com.springinaction.spingidol.performers.Instrumentalist"
+		p:song="#{kenny.song?.toUpperCase()}" 
+		p:instrument="#{kenny.song.contains('Rose')?saxophoneInstrument:harmonicaInstrument}">
+	</bean>
 
 	<!-- Wiring Collections -->
 
@@ -66,7 +71,16 @@
 				<entry key="PIANIO" value-ref="pianoInstrument" />
 			</map>
 		</property>
-		
 	</bean>
-
+	
+	<!-- util namespace and spEL collections -->
+	
+	<util:list id="cities">
+		<bean class="com.springinaction.spelcollections.City" p:name="Cairo" p:state="CA" p:population="5000000" />
+		<bean class="com.springinaction.spelcollections.City" p:name="Alex"  p:state="AL" p:population="1000000" />
+		<bean class="com.springinaction.spelcollections.City" p:name="Riyadh"  p:state="RY" p:population="3000000" />
+	</util:list>
+	
+	<bean id="user" class="com.springinaction.spelcollections.User" p:profileCity="#{cities[0]}" />
+	
 </beans>
