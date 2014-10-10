@@ -81,6 +81,8 @@
 		<bean class="com.springinaction.spelcollections.City" p:name="Riyadh"  p:state="RY" p:population="3000000" />
 	</util:list>
 	
-	<bean id="user" class="com.springinaction.spelcollections.User" p:profileCity="#{cities[0]}" />
+	<bean id="user" class="com.springinaction.spelcollections.User" 
+		p:profileCity="#{cities[0]}" 
+		p:bigCityNames="#{cities.?[population ge 3000000].![name + ', ' + state]}" />
 	
 </beans>

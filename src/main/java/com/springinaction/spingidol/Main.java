@@ -79,6 +79,7 @@ public class Main {
 		System.out.println("----------------------------------------------------------");
 		User user = context.getBean("user", User.class);
 		System.out.println(user.getProfileCity());
+		System.out.println(user.getBigCityNames());
 
 		context.close();
 	}
