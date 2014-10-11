@@ -31,7 +31,7 @@
 
 	<!-- Property Injection -->
 	<bean id="pianoInstrument"
-		class="com.springinaction.spingidol.performers.instrument.PianoInstrument" />
+		class="com.springinaction.spingidol.performers.instrument.PianoInstrument"/>
 
 	<bean id="kenny" class="com.springinaction.spingidol.performers.Instrumentalist"
 		p:song="'Disert Rose'" p:instrument="#{pianoInstrument}" />
@@ -44,9 +44,9 @@
 	<!-- Wiring Collections -->
 
 	<bean id="saxophoneInstrument"
-		class="com.springinaction.spingidol.performers.instrument.SaxophoneInstrument" />
+		class="com.springinaction.spingidol.performers.instrument.SaxophoneInstrument"/>
 	<bean id="harmonicaInstrument"
-		class="com.springinaction.spingidol.performers.instrument.HarmonicaInstrument" />
+		class="com.springinaction.spingidol.performers.instrument.HarmonicaInstrument" primary="true"/>
 
 	<bean id="hank" class="com.springinaction.spingidol.performers.OneManBand">
 		<property name="instruments">
@@ -84,5 +84,9 @@
 	<bean id="user" class="com.springinaction.spelcollections.User" 
 		p:profileCity="#{cities[0]}" 
 		p:bigCityNames="#{cities.?[population ge 3000000].![name + ' ' + state]}" />
+	
+		<!-- Autowiring -->
+		<bean id="kenny2" class="com.springinaction.spingidol.performers.Instrumentalist" 
+			p:song="Kenny2 Song" autowire="byType"/>
 	
 </beans>

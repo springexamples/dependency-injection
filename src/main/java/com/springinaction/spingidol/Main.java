@@ -81,6 +81,13 @@ public class Main {
 		System.out.println(user.getProfileCity());
 		System.out.println(user.getBigCityNames());
 
+		System.out.println("kenny2=-------------------");
+		Performer kenny2 = context.getBean("kenny2", Performer.class);
+		try {
+			kenny2.perform();
+		} catch (PerformanceException e) {
+			e.printStackTrace();
+		}
 		context.close();
 	}
 }
