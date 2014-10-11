@@ -97,6 +97,20 @@ public class Main {
 			e.printStackTrace();
 		}
 		
+		System.out.println("-----New User-----------------------------------------------------");
+		User newUser = context.getBean("newUser", User.class);
+		System.out.println(newUser.getProfileCity());
+		System.out.println(newUser.getId());
+		if (newUser.getInstrumentalist() != null){
+			try {
+				newUser.getInstrumentalist().perform();
+			} catch (PerformanceException e) {
+				e.printStackTrace();
+			}
+		}else{
+			System.out.println("Null");
+		}
+		
 		context.close();
 	}
 }
