@@ -44,9 +44,9 @@
 	<!-- Wiring Collections -->
 
 	<bean id="saxophoneInstrument"
-		class="com.springinaction.spingidol.performers.instrument.SaxophoneInstrument"/>
+		class="com.springinaction.spingidol.performers.instrument.SaxophoneInstrument" autowire-candidate="false"/>
 	<bean id="harmonicaInstrument"
-		class="com.springinaction.spingidol.performers.instrument.HarmonicaInstrument" primary="true"/>
+		class="com.springinaction.spingidol.performers.instrument.HarmonicaInstrument" autowire-candidate="false"/>
 
 	<bean id="hank" class="com.springinaction.spingidol.performers.OneManBand">
 		<property name="instruments">
