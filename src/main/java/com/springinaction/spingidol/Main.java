@@ -81,13 +81,22 @@ public class Main {
 		System.out.println(user.getProfileCity());
 		System.out.println(user.getBigCityNames());
 
-		System.out.println("kenny2=-------------------");
+		System.out.println("kenny2=- Autowire byType------------------");
 		Performer kenny2 = context.getBean("kenny2", Performer.class);
 		try {
 			kenny2.perform();
 		} catch (PerformanceException e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("duck2=- Autowire constructor------------------");
+		Performer duck2 = context.getBean("duck2", Performer.class);
+		try {
+			duck2.perform();
+		} catch (PerformanceException e) {
+			e.printStackTrace();
+		}
+		
 		context.close();
 	}
 }

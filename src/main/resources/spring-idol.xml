@@ -85,8 +85,10 @@
 		p:profileCity="#{cities[0]}" 
 		p:bigCityNames="#{cities.?[population ge 3000000].![name + ' ' + state]}" />
 	
-		<!-- Autowiring -->
-		<bean id="kenny2" class="com.springinaction.spingidol.performers.Instrumentalist" 
+	<!-- Autowiring -->
+	<bean id="kenny2" class="com.springinaction.spingidol.performers.Instrumentalist" 
 			p:song="Kenny2 Song" autowire="byType"/>
+			
+	<bean id="duck2" class="com.springinaction.spingidol.performers.PoeticJuggler" autowire="constructor" />	
 	
 </beans>
